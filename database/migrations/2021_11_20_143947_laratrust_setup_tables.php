@@ -67,6 +67,14 @@ class LaratrustSetupTables extends Migration
 
             $table->primary(['permission_id', 'role_id']);
         });
+
+        Schema::create('posts', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            $table->text('body');
+            $table->integer('user_id');
+        });
+
     }
 
     /**

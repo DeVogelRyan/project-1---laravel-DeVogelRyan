@@ -9,10 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $postItems = [
-        'created-at',
-        'id',
-        'created-by',
-    ];
+   public function user(){
+        return $this->belongsTo('App\User');
+   }
 
 }

@@ -3,6 +3,9 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard for users') }}
         </h2>
+        <p>
+            {{Auth::user()->name}}
+        </p>
     </x-slot>
 
     <div class="py-12">

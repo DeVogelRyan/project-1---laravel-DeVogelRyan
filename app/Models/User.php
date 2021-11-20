@@ -11,6 +11,7 @@ use Laratrust\Traits\LaratrustUserTrait;
 
 class User extends Authenticatable
 {
+
     use LaratrustUserTrait;
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -24,6 +25,10 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    public function posts(){
+        return $this->hasMany('App\Post');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

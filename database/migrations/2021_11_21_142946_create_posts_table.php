@@ -14,12 +14,19 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+
+            $table->string('title');
+            $table->longText('content');
+            // $table->string('slug')->unique()->nullable();
+
+            $table->unsignedBigInteger('user_id')->unsigned()->index()->comment('author of the post');
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
-            $table->text('body');
-            $table->integer('user_id');
         });
     }
+
 
     /**
      * Reverse the migrations.

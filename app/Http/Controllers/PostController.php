@@ -44,7 +44,8 @@ class PostController extends Controller
         // because laravel handles this in Post model through fillable array
         //Laravel will only save the data from the key that is in the fillables array
         $formData = $request->all();
-        $title =$request->get('title');
+
+
         // we need a seo bot readable url, this will create a slug based on title
         //$formData['slug'] = Str::slug($title+$id);
 

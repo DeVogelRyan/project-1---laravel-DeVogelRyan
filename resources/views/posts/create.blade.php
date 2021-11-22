@@ -10,7 +10,7 @@
 <div class="container">
     <div class="row">
         <h1>Create Post</h1>
-        <form action="{{ url('posts') }}" class="form" method="post">
+        <form action="{{ url('posts') }}" class="form" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group">
                 <label>Title</label>
@@ -20,9 +20,13 @@
                 <label>Content</label>
                 <textarea class="form-control" name="content" cols="3" rows="5"></textarea>
             </div>
+
+
             <div class="form-group">
                 <button class="btn btn-primary">Save</button>
             </div>
+
+
 
         </form>
     </div>

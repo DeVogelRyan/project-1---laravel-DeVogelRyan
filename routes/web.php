@@ -31,4 +31,5 @@ Route::post('posts','App\Http\Controllers\PostController@store')->middleware('au
 
 Route::get('post/view', 'App\Http\Controllers\PostController@getData')->middleware('auth');
 
+
 require __DIR__.'/auth.php';

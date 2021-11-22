@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Post;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -14,11 +16,20 @@ class PostController extends Controller
     }
 
     public function getData(){
-        $posts = DB::table('posts')->get();
-        // $users = DB::table('users')->get()->where("id", "1");
-        $users = DB::table('users')->get();
 
-        return view('posts.getData', ['posts' => $posts, 'users'=>$users]);
+        //This is the only way to get the user somehow.
+        $posts = Post::all();
+
+        return view('posts.getData', ['posts' => $posts]);
+
+        // $posts = DB::table('posts')->select('user_id')->get(); // or whatever, just get one log
+        // dd($posts);
+
+        // get the posts from the logged in user
+        // $id = Auth::id();
+        // $host = DB::table('posts')->where('user_id', $id)->get();
+        // dd($host);
+
     }
 
 
@@ -33,9 +44,9 @@ class PostController extends Controller
         // because laravel handles this in Post model through fillable array
         //Laravel will only save the data from the key that is in the fillables array
         $formData = $request->all();
-
+        $title =$request->get('title');
         // we need a seo bot readable url, this will create a slug based on title
-        // $formData['slug'] = Str::slug(($request->get('title')));
+        //$formData['slug'] = Str::slug($title+$id);
 
         //this creates posts based on the relation from user to post
         //meaning the id of user is automatically populated and saved in the user_id column of posts table

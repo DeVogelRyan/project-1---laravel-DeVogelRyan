@@ -29,7 +29,7 @@ Route::group(['middelware' => ['auth']], function () {
 Route::get('post/create', 'App\Http\Controllers\PostController@create')->middleware('auth')->name('createPosts');
 Route::post('posts','App\Http\Controllers\PostController@store')->middleware('auth');
 
-Route::get('post/view', 'App\Http\Controllers\PostController@getData')->middleware('auth');
+Route::get('post/view', 'App\Http\Controllers\PostController@getData')->middleware('auth')->name('viewPost');
 
 
 require __DIR__.'/auth.php';

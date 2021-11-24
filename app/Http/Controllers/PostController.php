@@ -55,7 +55,7 @@ class PostController extends Controller
 
 
 
-        return "Post successfully saved";
+        return redirect()->back()->withSuccess('IT WORKS!');
 
 
 

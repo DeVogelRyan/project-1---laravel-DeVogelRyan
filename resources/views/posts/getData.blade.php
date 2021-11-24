@@ -6,7 +6,6 @@
 @include('layouts.nav')
 
 
-<h1> Latest news </h1>
 <div class="flex-col md:flex-row justify-center items-center p-10">
 @foreach($posts as $post)
 

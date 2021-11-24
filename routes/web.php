@@ -14,22 +14,19 @@ use App\Http\Controllers\PageC;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 
 Route::group(['middelware' => ['auth']], function () {
     Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name
     ('dashboard');
 });
 
-
 Route::get('post/create', 'App\Http\Controllers\PostController@create')->middleware('auth')->name('createPosts');
 Route::post('posts','App\Http\Controllers\PostController@store')->middleware('auth');
-
 Route::get('post/view', 'App\Http\Controllers\PostController@getData')->middleware('auth')->name('viewPost');
 
+//images
+Route::get('images', 'App\Http\Controllers\ImageController@index');
+Route::post('images', 'App\Http\Controllers\ImageController@store')->name('images.store');
 
 require __DIR__.'/auth.php';

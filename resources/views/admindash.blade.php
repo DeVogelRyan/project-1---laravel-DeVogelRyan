@@ -3,7 +3,7 @@
 @include('layouts.nav')
 
 {{ Auth::user()->name }}
-You are logged in as a Admin
+You are logged in as a Admin ge hebt rechten
 
 
 <script src="{{ mix('js/app.js') }}"></script>

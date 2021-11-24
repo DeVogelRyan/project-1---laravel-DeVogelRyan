@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Image;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -46,14 +47,32 @@ class PostController extends Controller
         $formData = $request->all();
 
 
-        // we need a seo bot readable url, this will create a slug based on title
-        //$formData['slug'] = Str::slug($title+$id);
-
         //this creates posts based on the relation from user to post
         //meaning the id of user is automatically populated and saved in the user_id column of posts table
         $user->posts()->create($formData);
 
+
+        $request->validate([
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          ]);
+
+          $image = new Image;
+
+          if ($request->file('file')) {
+            $imagePath = $request->file('file');
+            $imageName = $imagePath->getClientOriginalName();
+
+            $path = $request->file('file')->storeAs('uploads', $imageName, 'public');
+          }
+
+          $image->name = $imageName;
+          $image->path = '/storage/'.$path;
+          $image->save();
+
         return "Post successfully saved";
+
+
+
     }
 
 

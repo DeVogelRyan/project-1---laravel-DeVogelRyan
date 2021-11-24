@@ -41,7 +41,7 @@
             <a href="{{route('dashboard')}}" class="{{ Route::is('dashboard') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
 
             <a href="{{ route('createPosts') }}" class="{{ Route::is('createPosts') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 rounded-md text-sm font-medium">Create Post</a>
-            <a href="{{route('viewPost')}}" class="{{ Route::is('viewPost') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 rounded-md text-sm font-medium">View Posts</a>
+            <a href="{{route('viewPosts')}}" class="{{ Route::is('viewPosts') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 rounded-md text-sm font-medium">View Posts</a>
 
             <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
 

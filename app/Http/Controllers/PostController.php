@@ -16,6 +16,21 @@ class PostController extends Controller
         return view('posts.create');
     }
 
+    public function edit()
+    {
+
+        $posts = Post::all();
+
+        return view('posts.edit', ['posts' => $posts]);
+    }
+
+    public function editSingle(Post $id){
+        $posts = Post::all();
+        return view('posts.getSingle', [
+            "singlePost" => $id
+            ]);
+    }
+
     public function getData(){
 
         //This is the only way to get the user somehow.

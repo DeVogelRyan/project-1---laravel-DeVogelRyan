@@ -31,7 +31,7 @@
               </div>
             </div>
              <label for="image">Choose Image</label>
-            <input type="file" name="file" class="form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" >
+            <input type="file" name="file" accept="image/*" class="form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" >
 
             {{-- <div>
               <label class="block text-sm font-medium text-gray-700">

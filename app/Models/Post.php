@@ -8,13 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'content'];
+    protected $fillable = ['title', 'content', 'file'];
 
     public function user() {
         return $this->belongsTo(User::class);
     }
 
-    public function image() {
-        return $this->belongsTo(Image::class);
-    }
 }

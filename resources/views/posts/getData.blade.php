@@ -6,6 +6,7 @@
 @include('layouts.nav')
 
 
+<h1> Latest news </h1>
 <div class="flex-col md:flex-row justify-center items-center p-10">
 @foreach($posts as $post)
 
@@ -21,16 +22,18 @@
 
 <div class="flex flex-col md:flex-row justify-center items-center w-full mb-5">
     <div class="w-full bg-white rounded-xl p-5 shadow-2xl">
-    <h1 class="font-bold mb-2 text-xl">    {{$post->title}}
+    <h1 class="font-bold mb-2 text-xl break-words">    {{$post->title}}
     </h1>
-        <p> {{$post->content}}
-        </p>
-        <div class='mt-5 flex items-center'>
-            <img src='https://picsum.photos/60/60' class='rounded-full'>
-            <div class="ml-3">
-                <h3 class="font-semibold"> {{$post->user->name}} </h2>
-                <p class="text-gray-500"> Singer/songwriter </p>
-            </div>
+    <p class="break-words"> {{$post->content}}
+    </p>
+    <img class="max-w-md" src="{{ asset('storage/uploads/'.$post->file) }}" alt="storyImg">
+    <div class='mt-5 flex items-center'>
+        <img src='https://picsum.photos/60/60' class='rounded-full'>
+        <div class="ml-3">
+
+            <h3 class="font-semibold"> {{$post->user->name}} </h2>
+            <p class="text-gray-500"> created at {{$post->updated_at}} </p>
+        </div>
         </div>
     </div>
 </div>

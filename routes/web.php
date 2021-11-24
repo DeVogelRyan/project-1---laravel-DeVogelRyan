@@ -25,8 +25,5 @@ Route::get('post/create', 'App\Http\Controllers\PostController@create')->middlew
 Route::post('posts','App\Http\Controllers\PostController@store')->middleware('auth');
 Route::get('post/view', 'App\Http\Controllers\PostController@getData')->middleware('auth')->name('viewPost');
 
-//images
-Route::get('images', 'App\Http\Controllers\ImageController@index');
-Route::post('images', 'App\Http\Controllers\ImageController@store')->name('images.store');
 
 require __DIR__.'/auth.php';

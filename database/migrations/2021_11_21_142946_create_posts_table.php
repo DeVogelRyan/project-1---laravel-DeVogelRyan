@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->longText('content');
+            $table->string('file')->nullable();
             $table->unsignedBigInteger('user_id')->unsigned()->index()->comment('author of the post');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

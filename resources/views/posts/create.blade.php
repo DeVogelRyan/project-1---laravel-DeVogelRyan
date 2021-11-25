@@ -5,7 +5,7 @@
 @include('layouts.nav')
 
 
-
+<h1>Create posts</h1>
 
 <form action="{{ url('posts') }}" method="POST" enctype="multipart/form-data">
 {{ csrf_field() }}

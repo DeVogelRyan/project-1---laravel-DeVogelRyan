@@ -31,7 +31,8 @@
         <div class="ml-3">
 
             <h3 class="font-semibold"> {{$post->user->name}} </h2>
-            <p class="text-gray-500"> created at {{$post->updated_at}} </p>
+                {{-- toDateString() removes the time--}}
+            <p class="text-gray-500"> updated at {{$post->updated_at->toDateString()}} </p>
         </div>
         </div>
     </div>

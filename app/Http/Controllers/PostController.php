@@ -18,15 +18,19 @@ class PostController extends Controller
 
     public function edit()
     {
-
         $posts = Post::all();
-
         return view('posts.edit', ['posts' => $posts]);
+    }
+
+    public function update(Request $request){
+        $post = Post::where('id', $request->currentId)->first();
+        $post->update(array('title' =>$request->title));
+        $post->update(array('content' =>$request->content));
     }
 
     public function editSingle(Post $id){
         $posts = Post::all();
-        return view('posts.getSingle', [
+        return view('posts.editSingle', [
             "singlePost" => $id
             ]);
     }
@@ -36,7 +40,7 @@ class PostController extends Controller
         //This is the only way to get the user somehow.
         $posts = Post::all();
 
-        return view('posts.getData', ['posts' => $posts]);
+        return view('posts.view', ['posts' => $posts]);
 
         // $posts = DB::table('posts')->select('user_id')->get(); // or whatever, just get one log
         // dd($posts);

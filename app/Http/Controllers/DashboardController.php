@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,8 @@ class DashboardController extends Controller
             return view('userdash');
         }
         elseif (Auth::user()->hasRole('admin')){
-            return view('admindash');
+            $users = User::count();
+            return view('admindash', ['usercount' => $users]);
         }
     }
 }

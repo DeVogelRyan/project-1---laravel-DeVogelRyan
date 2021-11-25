@@ -26,17 +26,17 @@
     <p class="break-words"> {{$post->content}}
     </p>
     <img class="max-w-md" src="{{ asset('storage/uploads/'.$post->file) }}" alt="storyImg">
-    <div class='mt-5 flex items-center'>
+    <div class='mt-5 mb-5 flex items-center'>
         <img src='https://picsum.photos/60/60' class='rounded-full'>
         <div class="ml-3">
 
             <h3 class="font-semibold"> {{$post->user->name}} </h2>
-            <p class="text-gray-500"> created at {{$post->updated_at}} </p>
-            <a href="{{ route('editPostId', ["id" => $post->id] ) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
-                Button
-            </a>
+            <p class="text-gray-500"> created at {{$post->updated_at->toDateString()}} </p>
         </div>
         </div>
+        <a href="{{ route('editPostId', ["id" => $post->id] ) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+            edit
+        </a>
     </div>
 </div>
 

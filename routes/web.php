@@ -28,5 +28,6 @@ Route::get('/post/{id}/edit', 'App\Http\Controllers\PostController@editSingle')-
 Route::post('posts','App\Http\Controllers\PostController@store')->middleware('auth');
 Route::get('post/view', 'App\Http\Controllers\PostController@getData')->middleware('auth')->name('viewPosts');
 
+Route::post('post/update','App\Http\Controllers\PostController@update')->middleware('auth');
 
 require __DIR__.'/auth.php';

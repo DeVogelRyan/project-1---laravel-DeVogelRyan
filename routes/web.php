@@ -23,11 +23,12 @@ Route::group(['middelware' => ['auth']], function () {
 
 Route::get('post/create', 'App\Http\Controllers\PostController@create')->middleware('auth')->name('createPosts');
 Route::get('post/edit', 'App\Http\Controllers\PostController@edit')->middleware('auth')->name('editPosts');
-Route::get('/post/{id}/edit', 'App\Http\Controllers\PostController@editSingle')->name('editPostId');
+Route::get('/post/{id}/edit', 'App\Http\Controllers\PostController@editSingle')->middleware('auth')->name('editPostId');
+Route::get('/post/{id}/delete', 'App\Http\Controllers\PostController@delete')->middleware('auth')->name('deletePostId');
 
 Route::post('posts','App\Http\Controllers\PostController@store')->middleware('auth');
 Route::get('post/view', 'App\Http\Controllers\PostController@getData')->middleware('auth')->name('viewPosts');
 
-Route::post('post/update','App\Http\Controllers\PostController@update')->middleware('auth');
+Route::post('post/update','App\Http\Controllers\PostController@update')->middleware('auth')->name('updatePosts');
 
 require __DIR__.'/auth.php';

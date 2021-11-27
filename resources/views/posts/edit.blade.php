@@ -37,6 +37,9 @@
         <a href="{{ route('editPostId', ["id" => $post->id] ) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
             edit
         </a>
+        <a href="{{ route('deletePostId', ["id" => $post->id] ) }}" class="bg-blue-500 ml-2 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+            delete
+        </a>
     </div>
 </div>
 

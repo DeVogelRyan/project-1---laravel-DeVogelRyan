@@ -47,24 +47,24 @@
                             clip-rule="evenodd"></path>
                     </svg>
                 </div>
-                <input datepicker type="text"
+                <input type="date"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-                    placeholder="Select date of birth">
+                    name="date_of_birth" required placeholder="Select date of birth">
             </div>
             Profile picture
             <div class="flex mt-10">
 
-                <div class="w-2/6">
-                    <input type="radio" class="self-auto" id="pic1" name="profile_img">
+                <div class="w-2/6 p-2">
+                    <input class="mb-2" type="radio" class="self-auto" id="pic1" name="profile_img" required>
                     <label for="pic1"><img src="https://avatars.dicebear.com/api/miniavs/ryan.svg"></label>
                 </div>
-                <div class="w-2/6">
-                    <input type="radio" id="pic1" name="profile_img">
-                    <label for="pic1"><img src="https://avatars.dicebear.com/api/miniavs/ryan.svg"></label>
+                <div class="w-2/6 p-2">
+                    <input class="mb-2" type="radio" id="pic2" name="profile_img" required>
+                    <label for="pic2"><img src="https://avatars.dicebear.com/api/bottts/ryan.svg"></label>
                 </div>
-                <div class="w-2/6">
-                    <input type="radio" id="pic1" name="profile_img">
-                    <label for="pic1"><img src="https://avatars.dicebear.com/api/miniavs/ryan.svg"></label>
+                <div class="w-2/6 p-2">
+                    <input class="mb-2" type="radio" id="pic3" name="profile_img" required>
+                    <label for="pic3"><img class="p-2" src="https://avatars.dicebear.com/api/initials/ryan.svg"></label>
                 </div>
             </div>
 
@@ -83,3 +83,5 @@
 
 
 <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/datepicker.bundle.js"></script>
+<script src="{{ '../js/checkBoxes.js' }}"></script>
+<script src="{{ '../js/placeAvatar.js' }}"></script>

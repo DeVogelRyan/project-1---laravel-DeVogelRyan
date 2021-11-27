@@ -25,6 +25,8 @@ class addAdmin extends Seeder
             'name' => 'admin',
             'email' => 'admin@ehb.be',
             'password' => Hash::make('Password!321'),
+            'date_of_birth' =>'2002-04-05',
+            'profile_img'=> 'https://avatars.dicebear.com/api/initials/admin.svg'
         ]);
 
         $user->attachRole('admin');

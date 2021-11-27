@@ -36,9 +36,8 @@ class PostController extends Controller
         $file = $request->file;
         if ($request->file('file')) {
             $OldFile = $post->file;
-            $filePath = '/public/uploads/' . $OldFile;  //delete the old file
-            Storage::delete($filePath);
-
+            $filePath = '/public/uploads/' . $OldFile;
+            Storage::delete($filePath);   //delete the old file
             $image = $request->file('file');
             $imageName = time() . '.' . $image->getClientOriginalName();
             $path = $request->file('file')->storeAs('uploads', $imageName, 'public');//save the new file

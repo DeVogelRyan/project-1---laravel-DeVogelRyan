@@ -33,7 +33,6 @@ class PostController extends Controller
         $post = Post::where('id', $request->currentId)->first();
         $post->update(array('title' => $request->title));
         $post->update(array('content' => $request->content));
-        $file = $request->file;
         if ($request->file('file')) {
             $OldFile = $post->file;
             $filePath = '/public/uploads/' . $OldFile;
@@ -42,8 +41,9 @@ class PostController extends Controller
             $imageName = time() . '.' . $image->getClientOriginalName();
             $path = $request->file('file')->storeAs('uploads', $imageName, 'public');//save the new file
             $file = $imageName;
+            $post->update(array('file' => $file));
         }
-        $post->update(array('file' => $file));
+
     }
 
     public function editSingle(Post $id){

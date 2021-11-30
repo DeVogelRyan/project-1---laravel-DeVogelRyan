@@ -20,7 +20,12 @@ Route::group(['middelware' => ['auth']], function () {
     Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name
     ('dashboard');
 });
+//DashboardViewUsers
+Route::get('users/edit', 'App\Http\Controllers\DashboardController@viewUsers')->middleware('auth')->name('viewUsersAdmin');
+Route::get('users/{id}/promote', 'App\Http\Controllers\DashboardController@promote')->middleware('auth')->name('promote');
+Route::get('users/{id}/demote', 'App\Http\Controllers\DashboardController@demote')->middleware('auth')->name('demote');
 
+//posts
 Route::get('post/create', 'App\Http\Controllers\PostController@create')->middleware('auth')->name('createPosts');
 Route::get('post/edit', 'App\Http\Controllers\PostController@edit')->middleware('auth')->name('editPosts');
 Route::get('/post/{id}/edit', 'App\Http\Controllers\PostController@editSingle')->middleware('auth')->name('editPostId');

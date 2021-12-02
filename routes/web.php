@@ -26,14 +26,20 @@ Route::get('users/{id}/promote', 'App\Http\Controllers\DashboardController@promo
 Route::get('users/{id}/demote', 'App\Http\Controllers\DashboardController@demote')->middleware('auth')->name('demote');
 
 //posts
-Route::get('post/create', 'App\Http\Controllers\PostController@create')->middleware('auth')->name('createPosts');
-Route::get('post/edit', 'App\Http\Controllers\PostController@edit')->middleware('auth')->name('editPosts');
-Route::get('/post/{id}/edit', 'App\Http\Controllers\PostController@editSingle')->middleware('auth')->name('editPostId');
-Route::get('/post/{id}/delete', 'App\Http\Controllers\PostController@delete')->middleware('auth')->name('deletePostId');
+Route::group(['middelware' => ['auth']], function () {
+    Route::get('post/create', 'App\Http\Controllers\PostController@create')->name('createPosts');
+    Route::get('post/edit', 'App\Http\Controllers\PostController@edit')->name('editPosts');
+    Route::get('/post/{id}/edit', 'App\Http\Controllers\PostController@editSingle')->name('editPostId');
+    Route::get('/post/{id}/delete', 'App\Http\Controllers\PostController@delete')->name('deletePostId');
+    Route::post('post/store','App\Http\Controllers\PostController@store')->name('storePosts');
+    Route::get('post/view', 'App\Http\Controllers\PostController@getData')->name('viewPosts');
+    Route::post('post/update','App\Http\Controllers\PostController@update')->name('updatePosts');
+});
 
-Route::post('posts','App\Http\Controllers\PostController@store')->middleware('auth');
-Route::get('post/view', 'App\Http\Controllers\PostController@getData')->middleware('auth')->name('viewPosts');
-
-Route::post('post/update','App\Http\Controllers\PostController@update')->middleware('auth')->name('updatePosts');
+//contactForm
+Route::group(['middelware' => ['auth']], function () {
+    Route::get('contact', 'App\Http\Controllers\ContactController@getView')->name('contact');
+    Route::post('contact/create', 'App\Http\Controllers\ContactController@create')->name('contactCreate');
+});
 
 require __DIR__.'/auth.php';

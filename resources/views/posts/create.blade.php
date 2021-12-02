@@ -4,7 +4,7 @@
 <body>
     @include('layouts.nav')
 
-    <form action="{{ url('posts') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('post/store') }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="mt-2 shadow sm:rounded-md sm:overflow-hidden">
             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
@@ -70,8 +70,18 @@
     </form>
 
     @if(session('success'))
-    <h1>{{session('success')}}</h1>
+
+    <div x-data="{show: true}" x-init="setTimeout(()=>show = false, 4500)" x-show="show">
+        <div class="w-72 fixed bottom-5 right-5 px-4 py-3 leading-normal text-green-700 bg-green-100 rounded-lg" role="alert">
+            <h5 class="font-bold">Succes!</h5>
+            <p>{{session('success')}}</p>
+        </div>
+    </div>
     @endif
+
+    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ '../js/nav.js' }}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.0.1/dist/alpine.js" defer></script>
 
 
 

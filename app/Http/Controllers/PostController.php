@@ -89,6 +89,4 @@ class PostController extends Controller
         $user->posts()->create($formdata);
         return redirect()->back()->withSuccess('IT WORKS!');
     }
-
-
 }

@@ -36,7 +36,7 @@
             <img class="max-w-md" src="{{ asset('storage/uploads/'.$singlePost->file) }}" alt="storyImg">
               <div class="flex justify-center text-sm text-gray-600">
                 <label for="file-upload" class="ml-10 relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                  <span>Choose new file</span>
+                  <span>Change</span>
                   <input id="file-upload" name="file" type="file" class="sr-only form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" accept="image/*">
                 </label>
               </div>

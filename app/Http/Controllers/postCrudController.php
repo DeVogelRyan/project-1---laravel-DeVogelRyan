@@ -11,23 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
-class PostController extends Controller
+class PostCrudController extends Controller
 {
-    public function create()
-    {
-        return view('posts.create');
-    }
-
-    public function edit()
-    {
-        if (Auth::user()->hasRole('admin')){
-            $posts = Post::all();
-            return view('posts.edit', ['posts' => $posts]);
-        }
-        else {
-            return view('layouts.noPermission');
-        }
-    }
 
     public function update(Request $request){
         $post = Post::where('id', $request->currentId)->first();
@@ -43,13 +28,6 @@ class PostController extends Controller
             $file = $imageName;
             $post->update(array('file' => $file));
         }
-
-    }
-
-    public function editSingle(Post $id){
-        return view('posts.editSingle', [
-            "singlePost" => $id
-            ]);
     }
 
     public function delete(Post $id){
@@ -65,15 +43,6 @@ class PostController extends Controller
         }
 
         //dd($id->id);
-    }
-
-    public function getData(){
-        $posts = Post::all();
-        return view('posts.view', ['posts' => $posts]);
-        // get the posts from the logged in user
-        // $id = Auth::id();
-        // $host = DB::table('posts')->where('user_id', $id)->get();
-        // dd($host);
     }
 
     public function store(Request $request) {

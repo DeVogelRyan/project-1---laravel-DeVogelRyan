@@ -102,10 +102,12 @@
                         <!-- Active: "bg-gray-100", Not Active: "" -->
                         @if (Route::has('login'))
                         @auth
+                        <a class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                        id="user-menu-item-2" href="{{ route('editProfile') }}"
+                        class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Edit Profile</a>
                         <form role="menuitem" tabindex="-1" id="user-menu-item-0" method="POST"
                             action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
@@ -121,7 +123,9 @@
                             id="user-menu-item-2" href="{{ route('register') }}"
                             class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                         @endif
+
                         @endauth
+
                     </div>
                     @endif
 

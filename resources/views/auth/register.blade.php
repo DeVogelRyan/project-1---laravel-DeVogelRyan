@@ -38,7 +38,8 @@
                     name="password_confirmation" required />
             </div>
             <!-- Birth Day -->
-            <div class="relative mt-4">
+            <x-label class="mt-5" :value="__('Select date of birth')" />
+            <div class="relative mt-1">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -49,21 +50,22 @@
                 </div>
                 <input type="date"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-                    name="date_of_birth" required placeholder="Select date of birth">
+                    name="date_of_birth" required value="Select date of birth">
             </div>
-            Profile picture
+
+            <x-label class="mt-8" :value="__('Profile picture')" />
             <div class="flex mt-10">
 
                 <div class="w-2/6 p-2">
-                    <input class="mb-2" type="radio" class="self-auto" id="pic1" name="profile_img" required>
+                    <input class="mb-2 ml-16" type="radio" class="self-auto" id="pic1" name="profile_img" required>
                     <label for="pic1"><img src="https://avatars.dicebear.com/api/miniavs/ryan.svg"></label>
                 </div>
                 <div class="w-2/6 p-2">
-                    <input class="mb-2" type="radio" id="pic2" name="profile_img" required>
+                    <input class="mb-2 ml-16" type="radio" id="pic2" name="profile_img" required>
                     <label for="pic2"><img src="https://avatars.dicebear.com/api/bottts/ryan.svg"></label>
                 </div>
                 <div class="w-2/6 p-2">
-                    <input class="mb-2" type="radio" id="pic3" name="profile_img" required>
+                    <input class="mb-2 ml-16" type="radio" id="pic3" name="profile_img" required>
                     <label for="pic3"><img class="p-2" src="https://avatars.dicebear.com/api/initials/ryan.svg"></label>
                 </div>
             </div>

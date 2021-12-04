@@ -14,7 +14,7 @@ class CreateContactsTable extends Migration
     public function up()
     {
         Schema::create('contacts', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('title');
             $table->longText('content');
             $table->unsignedBigInteger('user_id')->unsigned()->index()->comment('author of the post');

@@ -54,18 +54,18 @@
             </div>
 
             <x-label class="mt-8" :value="__('Profile picture')" />
-            <div class="flex mt-10">
+            <div class="flex flex-col md:flex-row justify-center items-center mt-10">
 
-                <div class="w-2/6 p-2">
-                    <input class="mb-2 ml-16" type="radio" class="self-auto" id="pic1" name="profile_img" required>
+                <div class="text-center w-4/6 md:w-2/6 p-2">
+                    <input class="mb-2" type="radio" class="self-auto" id="pic1" name="profile_img" required>
                     <label for="pic1"><img src="https://avatars.dicebear.com/api/miniavs/ryan.svg"></label>
                 </div>
-                <div class="w-2/6 p-2">
-                    <input class="mb-2 ml-16" type="radio" id="pic2" name="profile_img" required>
+                <div class="text-center w-4/6 md:w-2/6 p-2">
+                    <input class="mb-2" type="radio" id="pic2" name="profile_img" required>
                     <label for="pic2"><img src="https://avatars.dicebear.com/api/bottts/ryan.svg"></label>
                 </div>
-                <div class="w-2/6 p-2">
-                    <input class="mb-2 ml-16" type="radio" id="pic3" name="profile_img" required>
+                <div class="text-center w-4/6 md:w-2/6 p-2">
+                    <input class="mb-2" type="radio" id="pic3" name="profile_img" required>
                     <label for="pic3"><img class="p-2" src="https://avatars.dicebear.com/api/initials/ryan.svg"></label>
                 </div>
             </div>

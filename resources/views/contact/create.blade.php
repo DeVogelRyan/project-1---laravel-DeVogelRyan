@@ -4,7 +4,7 @@
 <body>
     @include('layouts.nav')
 
-    <form action="{{ url('contact/create') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('contact/create') }}" method="POST">
         {{ csrf_field() }}
         <div class="mt-2 shadow sm:rounded-md sm:overflow-hidden">
             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
@@ -35,20 +35,18 @@
             </div>
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                 <button type="submit"
-                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    class="w-28 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Save
                 </button>
             </div>
     </form>
 
     @if(session('success'))
+        @include('modules.succesPopup')
+    @endif
 
-    <div x-data="{show: true}" x-init="setTimeout(()=>show = false, 4500)" x-show="show">
-        <div class="w-72 fixed bottom-5 right-5 px-4 py-3 leading-normal text-green-700 bg-green-100 rounded-lg" role="alert">
-            <h5 class="font-bold">Succes!</h5>
-            <p>{{session('success')}}</p>
-        </div>
-    </div>
+    @error('error')
+        @include('modules.errorPopup')
     @endif
 
     <script src="{{ mix('js/app.js') }}"></script>

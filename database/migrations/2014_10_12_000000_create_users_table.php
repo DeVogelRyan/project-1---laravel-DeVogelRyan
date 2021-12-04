@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->date('date_of_birth');
             $table->string('profile_img');
+            $table->longText('bio')->default('Default bio');
         });
     }
 

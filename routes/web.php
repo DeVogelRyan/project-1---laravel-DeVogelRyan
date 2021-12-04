@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostCRUDController;
 use App\Http\Controllers\PageC;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,18 +29,21 @@ Route::middleware('auth')->group(function() {//check if user is logged in
     //views
     Route::get('post/create', 'App\Http\Controllers\PostViewController@getViewCreate')->name('createPosts');
     Route::get('post/edit', 'App\Http\Controllers\PostViewController@getViewEdit')->name('editPosts');
-    Route::get('/post/{id}/edit', 'App\Http\Controllers\PostViewController@editSingle')->name('editPostId');
+    Route::get('post/{id}/edit', 'App\Http\Controllers\PostViewController@editSingle')->name('editPostId');
     Route::get('post/view', 'App\Http\Controllers\PostViewController@getData')->name('viewPosts');
     //operations
-    Route::get('/post/{id}/delete', 'App\Http\Controllers\PostCrudController@delete')->name('deletePostId');
+    Route::get('post/{id}/delete', 'App\Http\Controllers\PostCrudController@delete')->name('deletePostId');
     Route::post('post/store','App\Http\Controllers\PostCrudController@store')->name('storePosts');
     Route::post('post/update','App\Http\Controllers\PostCrudController@update')->name('updatePosts');
 });
 
 //contactForm
 Route::middleware('auth')->group(function() {//check if user is logged in
-    Route::get('contact', 'App\Http\Controllers\ContactController@getView')->name('contact');
-    Route::post('contact/create', 'App\Http\Controllers\ContactController@create')->name('contactCreate');
+    Route::get('contact', 'App\Http\Controllers\ContactViewController@createContact')->name('contact');
+    Route::post('contact/create', 'App\Http\Controllers\ContactCRUDController@create')->name('contactCreate');
+    Route::get('contact/view', 'App\Http\Controllers\ContactViewController@viewContact')->name('viewContact');
+    Route::get('contact/{id}/reply', 'App\Http\Controllers\ContactViewController@reply')->name('replyContactId');
+    Route::post('contact/storeReply', 'App\Http\Controllers\ContactReplyController@store')->name('storeReply');
 });
 
 
@@ -50,5 +52,7 @@ Route::middleware('auth')->group(function() {//check if user is logged in
     Route::get('editProfile', 'App\Http\Controllers\UserProfileController@getView')->name('editProfile');
     //Route::post('contact/create', 'App\Http\Controllers\ContactController@create')->name('contactCreate');
 });
+
+
 
 require __DIR__.'/auth.php';

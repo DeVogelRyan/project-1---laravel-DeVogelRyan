@@ -27,7 +27,7 @@ You are logged in as a Admin ge hebt rechten
         </svg>
         Edit posts
     </a>
-    <button type="button"
+    <a href="{{route('viewContact')}}"
         class="rounded-r-md border border-gray-200 bg-white text-sm font-medium px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 inline-flex items-center">
         <svg class="w-4 h-4 mr-2 fill-current" fill="currentColor" viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg">
@@ -35,8 +35,8 @@ You are logged in as a Admin ge hebt rechten
                 d="M2 9.5A3.5 3.5 0 005.5 13H9v2.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 15.586V13h2.5a4.5 4.5 0 10-.616-8.958 4.002 4.002 0 10-7.753 1.977A3.5 3.5 0 002 9.5zm9 3.5H9V8a1 1 0 012 0v5z"
                 clip-rule="evenodd"></path>
         </svg>
-        Downloads
-    </button>
+        View contact forms
+    </a>
 </div>
 
 <script src="{{ mix('js/app.js') }}"></script>

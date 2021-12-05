@@ -3,8 +3,6 @@
 <body>
     @include('layouts.nav')
 
-    <h1>Edit posts</h1>
-
     <form action="{{ url('post/update') }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="shadow sm:rounded-md sm:overflow-hidden">
@@ -44,7 +42,7 @@
         </div>
         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
             <button type="submit"
-                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                class="w-28 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Save
             </button>
         </div>
@@ -52,8 +50,13 @@
         <input name="currentId" value="{{$singlePost->id}}" hidden>
     </form>
 
+
     @if(session('success'))
-    <h1>{{session('success')}}</h1>
+    @include('modules.succesPopup')
+    @endif
+
+    @error('error')
+    @include('modules.errorPopup')
     @endif
 
 

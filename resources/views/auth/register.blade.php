@@ -48,9 +48,9 @@
                             clip-rule="evenodd"></path>
                     </svg>
                 </div>
-                <input type="date"
+                <input type="date" id="datePicker"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5"
-                    name="date_of_birth" required value="Select date of birth">
+                    name="date_of_birth" min="1900-10-01" max="<?php echo date('Y-m-d', strtotime("-13 year")) ?>" required value="Select date of birth">
             </div>
 
             <x-label class="mt-8" :value="__('Profile picture')" />

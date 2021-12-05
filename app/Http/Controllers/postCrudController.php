@@ -28,10 +28,11 @@ class PostCrudController extends Controller
             $file = $imageName;
             $post->update(array('file' => $file));
         }
+        return redirect()->back()->withSuccess('Post succesfully edited!');
     }
 
     public function delete(Post $id){
-        if (Auth::user()->hasRole('admin')){
+        if (Auth::user()->id == $id->user->id || Auth::user()->hasRole('admin')){
             $post = Post::where('id', $id->id)->first();
             $post->delete();
             $OldFile = $post->file;
@@ -43,7 +44,6 @@ class PostCrudController extends Controller
             return view('layouts.noPermission');
         }
 
-        //dd($id->id);
     }
 
     public function store(Request $request) {

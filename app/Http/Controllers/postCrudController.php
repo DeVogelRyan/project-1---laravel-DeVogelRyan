@@ -37,6 +37,7 @@ class PostCrudController extends Controller
             $OldFile = $post->file;
             $filePath = '/public/uploads/' . $OldFile;  //delete the old file
             Storage::delete($filePath);
+            return redirect()->back()->withSuccess('Post succesfully deleted!');
         }
         else {
             return view('layouts.noPermission');
@@ -56,6 +57,6 @@ class PostCrudController extends Controller
             $formdata['file'] = $imageName;
         }
         $user->posts()->create($formdata);
-        return redirect()->back()->withSuccess('IT WORKS!');
+        return redirect()->back()->withSuccess('Post succesfully created!');
     }
 }

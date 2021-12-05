@@ -105,6 +105,9 @@
                         <a class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
                         id="user-menu-item-2" href="{{ route('editProfile') }}"
                         class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Edit Profile</a>
+                        <a class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                        id="user-menu-item-2" href="{{ route('viewAllUsers') }}"
+                        class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">View Users</a>
                         <form role="menuitem" tabindex="-1" id="user-menu-item-0" method="POST"
                             action="{{ route('logout') }}">
                             @csrf

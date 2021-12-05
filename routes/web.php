@@ -43,16 +43,22 @@ Route::middleware('auth')->group(function() {//check if user is logged in
     Route::post('contact/create', 'App\Http\Controllers\ContactCRUDController@create')->name('contactCreate');
     Route::get('contact/view', 'App\Http\Controllers\ContactViewController@viewContact')->name('viewContact');
     Route::get('contact/{id}/reply', 'App\Http\Controllers\ContactViewController@reply')->name('replyContactId');
+    Route::get('contact/{id}/delete', 'App\Http\Controllers\ContactCRUDController@delete')->name('deleteContactId');
     Route::post('contact/storeReply', 'App\Http\Controllers\ContactReplyController@store')->name('storeReply');
 });
-
 
 //edit profile
 Route::middleware('auth')->group(function() {//check if user is logged in
     Route::get('editProfile', 'App\Http\Controllers\UserProfileController@getView')->name('editProfile');
-    //Route::post('contact/create', 'App\Http\Controllers\ContactController@create')->name('contactCreate');
+    Route::post('updateProfile', 'App\Http\Controllers\UserProfileController@update')->name('updateProfile');
 });
 
+//view all users
 
+Route::middleware('auth')->group(function() {//check if user is logged in
+    Route::get('viewAllUsers', 'App\Http\Controllers\ViewAllUsers@getAll')->name('viewAllUsers');
+    Route::get('viewSingleUser/{id}', 'App\Http\Controllers\ViewAllUsers@getSingle')->name('viewSingleUser');
+    Route::get('viewSingleUserHistory/{id}', 'App\Http\Controllers\ViewAllUsers@getHistory')->name('viewSingleUserHistory');
+});
 
 require __DIR__.'/auth.php';

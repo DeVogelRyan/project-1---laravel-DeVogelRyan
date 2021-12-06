@@ -13,8 +13,6 @@ class RegistrationTest extends TestCase
     public function test_registration_screen_can_be_rendered()
     {
 
-        $this->withoutMiddleware();
-
         $response = $this->get('/register');
 
         $response->assertStatus(200);
@@ -23,7 +21,6 @@ class RegistrationTest extends TestCase
     public function test_new_users_can_register()
     {
 
-        $this->withoutMiddleware();
 
         $response = $this->post('/register', [
             'name' => 'Test User',

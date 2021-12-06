@@ -31,9 +31,9 @@ class PostCrudController extends Controller
         return redirect()->back()->withSuccess('Post succesfully edited!');
     }
 
-    public function delete(Post $id){
-        if (Auth::user()->id == $id->user->id || Auth::user()->hasRole('admin')){
-            $post = Post::where('id', $id->id)->first();
+    public function delete($id){
+        $post = Post::where('id', $id)->first();
+        if (Auth::user()->id == $post->user->id || Auth::user()->hasRole('admin')){
             $post->delete();
             $OldFile = $post->file;
             $filePath = '/public/uploads/' . $OldFile;  //delete the old file

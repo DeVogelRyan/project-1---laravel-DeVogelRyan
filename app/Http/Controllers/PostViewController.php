@@ -31,11 +31,12 @@ class PostViewController extends Controller
         }
     }
 
-    public function editSingle(Post $id){
-        // if (Auth::user()->hasRole('admin')){
-        if (Auth::user()->id == $id->user->id || Auth::user()->hasRole('admin')){
+    public function editSingle($id){
+        dd($id);
+        $post = Post::where('id', $id)->first();
+        if (Auth::user()->id == $post->user->id || Auth::user()->hasRole('admin')){
             return view('posts.editSingle', [
-                "singlePost" => $id]);
+                "singlePost" => $post]);
             }
         else {
             return view('layouts.noPermission');

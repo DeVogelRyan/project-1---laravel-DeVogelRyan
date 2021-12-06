@@ -3,8 +3,6 @@
 <body>
     @include('layouts.nav')
 
-
-
     <div class="flex flex-col mt-5 w-full items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow p-2">
         <ul class="flex flex-col divide-y w-full">
             @foreach($users as $user)
@@ -31,17 +29,4 @@
         </ul>
       </div>
 
-
-{{--
-    <div class="flex-col md:flex-row justify-center items-center p-2 sm:p-10">
-        @foreach($users as $user)
-        <div class="flex flex-col md:flex-row justify-center items-center w-full mb-5 ">
-            <p>{{$user->name}}</p>
-        </div>
-        @endforeach
-    </div> --}}
-
     <script src="{{ '../js/nav.js' }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>

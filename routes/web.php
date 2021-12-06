@@ -54,11 +54,17 @@ Route::middleware('auth')->group(function() {//check if user is logged in
 });
 
 //view all users
-
 Route::middleware('auth')->group(function() {//check if user is logged in
     Route::get('viewAllUsers', 'App\Http\Controllers\ViewAllUsers@getAll')->name('viewAllUsers');
     Route::get('viewSingleUser/{id}', 'App\Http\Controllers\ViewAllUsers@getSingle')->name('viewSingleUser');
     Route::get('viewSingleUserHistory/{id}', 'App\Http\Controllers\ViewAllUsers@getHistory')->name('viewSingleUserHistory');
+});
+
+//About=sources
+Route::middleware('auth')->group(function() {//check if user is logged in
+    Route::get('/sources', function(){
+        return view('about');
+    })->name('sources');
 });
 
 require __DIR__.'/auth.php';

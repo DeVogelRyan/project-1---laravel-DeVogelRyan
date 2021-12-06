@@ -7,8 +7,9 @@
     global $i;
     $i=1; ?>
 
-    <div class="container mx-auto w-full h-full">
-        <div class="relative wrap overflow-hidden sm:p-10 h-full">
+    <div class="container mx-auto w-full h-full mt-5">
+        <img class="object-cover mx-auto object-center w-28 h-28 sm:w-24 sm:h-24 bg-white" src='{{$user->profile_img}}' alt='Profile'>
+        <div class="relative wrap overflow-hidden sm:px-10 h-full">
             <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
             <!-- right timeline -->
             <div class="mt-2 sm:mt-0 mb-8 flex justify-between items-center w-full right-timeline">
@@ -71,6 +72,3 @@
     </div>
 
     <script src="{{ '../js/nav.js' }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>

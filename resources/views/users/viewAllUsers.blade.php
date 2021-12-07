@@ -29,4 +29,6 @@
         </ul>
       </div>
 
+
+    @include('layouts.footer')
     <script src="{{ '../js/nav.js' }}"></script>

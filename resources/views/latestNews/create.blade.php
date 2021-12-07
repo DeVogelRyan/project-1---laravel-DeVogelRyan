@@ -4,7 +4,7 @@
 <body>
     @include('layouts.nav')
 
-    <form action="{{ url('post/store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('latestNewsCreate') }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="mt-2 shadow sm:rounded-md sm:overflow-hidden">
             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">

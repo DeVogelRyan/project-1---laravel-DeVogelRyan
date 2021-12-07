@@ -56,7 +56,7 @@
     </form>
 
 
-
+    @include('layouts.footer')
     @if(session('success'))
         @include('modules.succesPopup')
     @endif

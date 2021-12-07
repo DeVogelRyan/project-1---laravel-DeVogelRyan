@@ -90,6 +90,7 @@
     @include('modules.errorPopup')
     @endif
 
+    @include('layouts.footer')
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ '../js/nav.js' }}"></script>
     <script src="{{ '../js/ChangeAvatar.js' }}"></script>

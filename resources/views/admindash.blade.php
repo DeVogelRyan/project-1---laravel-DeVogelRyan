@@ -37,8 +37,12 @@ You are logged in as a Admin ge hebt rechten
         </svg>
         View contact forms
     </a>
+    <a href="{{ route('latestNewsCreateView') }}"
+    class="{{ Route::is('create Latest news') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 rounded-md text-sm font-medium">Create Latest News</a>
 </div>
 
+
+@include('layouts.footer')
 <script src="{{ mix('js/app.js') }}"></script>
 <script src="{{ 'js/nav.js' }}"></script>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.0.1/dist/alpine.js" defer></script>

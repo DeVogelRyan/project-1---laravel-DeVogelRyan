@@ -31,7 +31,7 @@
                     </div>
                 </div>
         <div class="flex items-center">
-            <img class="max-w-md" src="{{ asset('storage/uploads/'.$singlePost->file) }}" alt="storyImg">
+            <img class="max-w-md" src="{{ asset('storage/postsImg/'.$singlePost->file) }}" alt="storyImg">
               <div class="flex justify-center text-sm text-gray-600">
                 <label for="file-upload" class="ml-10 relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                   <span>Change</span>
@@ -61,6 +61,7 @@
 
 
 
+
+    @include('layouts.footer')
     <script src="{{'../../js/nav.js' }}"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.0.1/dist/alpine.js" defer></script>
-</body>

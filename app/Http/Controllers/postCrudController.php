@@ -20,11 +20,11 @@ class PostCrudController extends Controller
         $post->update(array('content' => $request->content));
         if ($request->file('file')) {
             $OldFile = $post->file;
-            $filePath = '/public/uploads/' . $OldFile;
+            $filePath = '/public/postsImg/' . $OldFile;
             Storage::delete($filePath);   //delete the old file
             $image = $request->file('file');
             $imageName = time() . '.' . $image->getClientOriginalName();
-            $path = $request->file('file')->storeAs('uploads', $imageName, 'public');//save the new file
+            $path = $request->file('file')->storeAs('postsImg', $imageName, 'public');//save the new file
             $file = $imageName;
             $post->update(array('file' => $file));
         }
@@ -36,7 +36,7 @@ class PostCrudController extends Controller
         if (Auth::user()->id == $post->user->id || Auth::user()->hasRole('admin')){
             $post->delete();
             $OldFile = $post->file;
-            $filePath = '/public/uploads/' . $OldFile;  //delete the old file
+            $filePath = '/public/postsImg/' . $OldFile;  //delete the old file
             Storage::delete($filePath);
             return redirect()->back()->withSuccess('Post succesfully deleted!');
         }
@@ -53,7 +53,7 @@ class PostCrudController extends Controller
         if ($request->file('file')) {
             $image = $request->file('file');
             $imageName = time() . '.' . $image->getClientOriginalName();
-            $path = $request->file('file')->storeAs('uploads', $imageName, 'public');
+            $path = $request->file('file')->storeAs('postsImg', $imageName, 'public');
             $formdata['file'] = $imageName;
         }
         $user->posts()->create($formdata);

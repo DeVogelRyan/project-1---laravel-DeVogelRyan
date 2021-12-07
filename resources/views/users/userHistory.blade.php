@@ -12,7 +12,7 @@
         <div class="relative wrap overflow-hidden sm:px-10 h-full">
             <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
             <!-- right timeline -->
-            <div class="mt-2 sm:mt-0 mb-8 flex justify-between items-center w-full right-timeline">
+            <div class="mt-2 mb-8 flex justify-between items-center w-full right-timeline">
                 <div class="order-1 w-5/12"></div>
                 <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
                     <h1 class="mx-auto font-semibold text-lg text-white"><?php echo $i++?></h1>
@@ -71,4 +71,6 @@
         </div>
     </div>
 
+
+    @include('layouts.footer')
     <script src="{{ '../js/nav.js' }}"></script>

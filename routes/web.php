@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
-
 Route::middleware('auth')->group(function() {//check if user is logged in
     Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
     //DashboardViewUsers
@@ -47,6 +45,13 @@ Route::middleware('auth')->group(function() {//check if user is logged in
     Route::post('contact/storeReply', 'App\Http\Controllers\ContactReplyController@store')->name('storeReply');
 });
 
+//latest news
+Route::middleware('auth')->group(function() {//check if user is logged in
+    Route::get('/', 'App\Http\Controllers\LatestNewsController@latestNewsView')->name('home'); // = HOME
+    Route::get('latestNewsCreateView', 'App\Http\Controllers\LatestNewsController@latestNewsCreate')->name('latestNewsCreateView');
+    Route::post('latestNewsCreate', 'App\Http\Controllers\LatestNewsController@create')->name('latestNewsCreate');
+});
+
 //edit profile
 Route::middleware('auth')->group(function() {//check if user is logged in
     Route::get('editProfile', 'App\Http\Controllers\UserProfileController@getView')->name('editProfile');
@@ -62,9 +67,11 @@ Route::middleware('auth')->group(function() {//check if user is logged in
 
 //About=sources
 Route::middleware('auth')->group(function() {//check if user is logged in
-    Route::get('/sources', function(){
+    Route::get('sources', function(){
         return view('about');
     })->name('sources');
 });
+
+
 
 require __DIR__.'/auth.php';

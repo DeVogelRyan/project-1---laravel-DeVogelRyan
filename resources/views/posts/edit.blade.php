@@ -11,7 +11,7 @@
                 </h1>
                 <p class="text-base sm:text-xl break-words mb-4"> {{$post->content}}
                 </p>
-                <img class="sm:w-4/5 md:max-w-md lg:max-w-md" src="{{ asset('storage/uploads/'.$post->file) }}"
+                <img class="sm:w-4/5 md:max-w-md lg:max-w-md" src="{{ asset('storage/postsImg/'.$post->file) }}"
                     alt="storyImg">
                 <div class='mt-5 mb-5 flex items-center'>
                     <img src='{{$post->user->profile_img}}' class='rounded-full h-10 w-10'>
@@ -43,5 +43,7 @@
     @include('modules.errorPopup')
     @endif
 
+
+    @include('layouts.footer')
     <script src="{{ '../js/nav.js' }}"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.0.1/dist/alpine.js" defer></script>

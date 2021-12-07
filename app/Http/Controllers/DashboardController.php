@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index(){
         if(Auth::user()->hasRole('user')){
-            return view('userdash');
+            return view('layouts.noPermission');
         }
         elseif (Auth::user()->hasRole('admin')){
             $users = User::count();
@@ -25,13 +25,27 @@ class DashboardController extends Controller
         }
     }
 
-    public function promote(User $id){
-        $id->detachRole('user');
-        $id->attachRole('admin');
+    public function promote($id){
+        if (Auth::user()->hasRole('admin')){
+            $user = User::where('id', $id)->first();
+            $user->detachRole('user');
+            $user->attachRole('admin');
+            return redirect()->back()->withSuccess('User succesfully promoted!');
+        }
+        else {
+            return view('layouts.noPermission');
+        }
     }
 
-    public function demote(User $id){
-        $id->detachRole('admin');
-        $id->attachRole('user');
+    public function demote($id){
+        if (Auth::user()->hasRole('admin')){
+            $user = User::where('id', $id)->first();
+            $user->detachRole('admin');
+            $user->attachRole('user');
+            return redirect()->back()->withSuccess('User succesfully Demoted!');
+        }
+        else {
+            return view('layouts.noPermission');
+        }
     }
 }

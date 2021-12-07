@@ -45,11 +45,14 @@
                 </div>
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
+                        @if(Auth::check())
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="{{route('dashboard')}}"
-                            class="{{ Route::is('dashboard') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 rounded-md text-sm font-medium"
-                            aria-current="page">Dashboard</a>
-
+                        @if(Auth::user()->hasRole('admin'))
+                            <a href="{{route('dashboard')}}"
+                                class="{{ Route::is('dashboard') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 rounded-md text-sm font-medium"
+                                aria-current="page">Dashboard</a>
+                                @endif
+                        @endif
                         <a href="{{ route('createPosts') }}"
                             class="{{ Route::is('createPosts') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 rounded-md text-sm font-medium">Create
                             Post</a>
@@ -137,32 +140,20 @@
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="sm:hidden" id="mobile-menu">
         <div class="px-2 pt-2 pb-3 space-y-1">
+        @if(Auth::check())
+        @if(Auth::user()->hasRole('admin'))
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="{{route('dashboard')}}" class="{{ Route::is('dashboard') ? 'bg-gray-900' : 'text-gray-300'}} text-white block px-3 py-2 rounded-md text-base font-medium"
                 aria-current="page">Dashboard</a>
-
+            @endif
+            @endif
             <a href="{{ route('createPosts') }}"
                 class="{{ Route::is('createPosts') ? 'bg-gray-900' : 'text-gray-300'}} text-white block px-3 py-2 rounded-md text-base font-medium">Create Post</a>
 
             <a href="{{route('viewPosts')}}"
                 class="{{ Route::is('viewPosts') ? 'bg-gray-900' : 'text-gray-300'}} text-white block px-3 py-2 rounded-md text-base font-medium">View Post</a>
 
-            <a href="#"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
 
-            {{-- <a href="{{route('dashboard')}}"
-                class="{{ Route::is('dashboard') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 rounded-md text-sm font-medium"
-                aria-current="page">Dashboard</a>
-
-            <a href="{{ route('createPosts') }}"
-                class="{{ Route::is('createPosts') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 rounded-md text-sm font-medium">Create
-                Post</a>
-            <a href="{{route('viewPosts')}}"
-                class="{{ Route::is('viewPosts') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 rounded-md text-sm font-medium">View
-                Posts</a>
-
-            <a href="#"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a> --}}
 
         </div>
     </div>

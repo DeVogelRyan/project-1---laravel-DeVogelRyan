@@ -40,6 +40,15 @@
 @endforeach
 </div>
 
+
+@if(session('success'))
+@include('modules.succesPopup')
+@endif
+
+@error('error')
+@include('modules.errorPopup')
+@endif
+
 @include('layouts.footer')
 <script src="{{ mix('js/app.js') }}"></script>
 <script src="{{ '../js/nav.js' }}"></script>

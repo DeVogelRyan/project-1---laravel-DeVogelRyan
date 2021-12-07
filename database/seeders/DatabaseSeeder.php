@@ -2,7 +2,11 @@
 
 namespace Database\Seeders;
 
+use Database\Seeders\addPost;
+use Database\Seeders\addAdmin;
+use Database\Seeders\addUsers;
 use Illuminate\Database\Seeder;
+use Database\Seeders\addLatestNews;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +19,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(LaratrustSeeder::class);
         $this->call(addAdmin::class);
+        $this->call(addUsers::class);
+        $this->call(addPost::class);
+        $this->call(addLatestNews::class);
 
     }
 }

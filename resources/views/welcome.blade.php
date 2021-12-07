@@ -5,18 +5,17 @@
 
 
     <div class="flex-col md:flex-row justify-center items-center p-2 sm:p-10">
-        <h1 class="italic font-bold text-lg sm:text-3xl mb-10 mt-2 text-indigo-500">Latest News</h1>
+        <h1 class="italic font-bold ml-4 sm:ml-0 text-2xl sm:text-3xl mb-10 mt-4 sm:mt-2 text-indigo-500">Latest News</h1>
         @foreach($latestNews as $singlelatestNews)
         <div class="flex flex-col md:flex-row justify-center items-center w-full mb-5 ">
             <div class="w-full bg-white rounded-xl p-5 shadow-2xl">
-                <h1 class="text-base sm:text-xl font-bold mb-2 text-xl break-words"> {{$singlelatestNews->title}}
+                <h1 class="text-base sm:text-xl font-bold mb-2 text-lg break-words"> {{$singlelatestNews->title}}
                 </h1>
-                <p class="text-base sm:text-xl break-words mb-4"> {{$singlelatestNews->content}}
+                <p class="text-base sm:text-xl text-md break-words mb-4"> {{$singlelatestNews->content}}
                 </p>
                 <img class="sm:w-4/5 md:max-w-md lg:max-w-md" src="{{ asset('storage/LatestImg/'.$singlelatestNews->file) }}"
                     alt="storyImg">
                 <div class='mt-5 mb-5 flex items-center'>
-                    <img src='{{$singlelatestNews->user->profile_img}}' class='rounded-full h-10 w-10'>
                     <div class="ml-3">
                         <h3 class="text-sm sm:text-base font-semibold"> {{$singlelatestNews->user->name}} </h2>
                             {{-- toDateString() removes the time--}}

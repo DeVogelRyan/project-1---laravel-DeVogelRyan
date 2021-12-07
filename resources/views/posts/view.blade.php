@@ -8,9 +8,9 @@
         @foreach($posts as $post)
         <div class="flex flex-col md:flex-row justify-center items-center w-full mb-5 ">
             <div class="w-full bg-white rounded-xl p-5 shadow-2xl">
-                <h1 class="text-base sm:text-xl font-bold mb-2 text-xl break-words"> {{$post->title}}
+                <h1 class="text-base sm:text-xl font-bold mb-2 text-lg break-words"> {{$post->title}}
                 </h1>
-                <p class="text-base sm:text-xl break-words mb-4"> {{$post->content}}
+                <p class="text-base sm:text-lg text-md break-words mb-4"> {{$post->content}}
                 </p>
                 <img class="sm:w-4/5 md:max-w-md lg:max-w-md" src="{{ asset('storage/postsImg/'.$post->file) }}"
                     alt="storyImg">

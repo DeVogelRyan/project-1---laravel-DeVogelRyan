@@ -22,6 +22,16 @@
                             <p class="text-sm sm:text-base text-gray-500"> updated at {{$singlelatestNews->updated_at->toDateString()}} </p>
                     </div>
                 </div>
+                @if(Auth::user()->hasrole('admin'))
+                <div class="ml-3">
+                    <a href="{{ route('latestNewsEdit', ["id" => $singlelatestNews->id] ) }}"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+                        edit
+                    </a>
+                    <a href="{{ route('deletelatestNewsId', ["id" => $singlelatestNews->id])}}" onclick="return confirm('Are you sure?')"
+                        class="bg-red-500 ml-2 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">Delete</a>
+                </div>
+                @endif
             </div>
         </div>
         @endforeach

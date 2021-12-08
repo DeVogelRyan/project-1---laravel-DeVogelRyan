@@ -50,6 +50,9 @@ Route::middleware('auth')->group(function() {//check if user is logged in
     Route::get('/', 'App\Http\Controllers\LatestNewsController@latestNewsView')->name('home'); // = HOME
     Route::get('latestNewsCreateView', 'App\Http\Controllers\LatestNewsController@latestNewsCreate')->name('latestNewsCreateView');
     Route::post('latestNewsCreate', 'App\Http\Controllers\LatestNewsController@create')->name('latestNewsCreate');
+    Route::get('latestNews/{id}/edit', 'App\Http\Controllers\LatestNewsController@editSingle')->name('latestNewsEdit');
+    Route::get('latestNews/{id}/delete', 'App\Http\Controllers\LatestNewsController@delete')->name('deletelatestNewsId');
+    Route::post('latestNews/update','App\Http\Controllers\LatestNewsController@update')->name('updatelatestNews');
 });
 
 //edit profile

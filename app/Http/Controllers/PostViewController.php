@@ -32,8 +32,8 @@ class PostViewController extends Controller
     }
 
     public function editSingle($id){
+        $post = Post::where('id', $id)->first();
         if (Auth::user()->id == $post->user->id || Auth::user()->hasRole('admin')){
-            $post = Post::where('id', $id)->first();
             return view('posts.editSingle', [
                 "singlePost" => $post]);
             }

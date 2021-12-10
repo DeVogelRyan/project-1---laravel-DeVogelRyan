@@ -22,6 +22,16 @@ Route::middleware('auth')->group(function() {//check if user is logged in
     Route::get('users/{id}/demote', 'App\Http\Controllers\DashboardController@demote')->name('demote');
 });
 
+//latest news
+Route::middleware('auth')->group(function() {//check if user is logged in
+    Route::get('/', 'App\Http\Controllers\LatestNewsController@latestNewsView')->name('home'); // = HOME
+    Route::get('latestNewsCreateView', 'App\Http\Controllers\LatestNewsController@latestNewsCreate')->name('latestNewsCreateView');
+    Route::post('latestNewsCreate', 'App\Http\Controllers\LatestNewsController@create')->name('latestNewsCreate');
+    Route::get('latestNews/{id}/edit', 'App\Http\Controllers\LatestNewsController@editSingle')->name('latestNewsEdit');
+    Route::get('latestNews/{id}/delete', 'App\Http\Controllers\LatestNewsController@delete')->name('deletelatestNewsId');
+    Route::post('latestNews/update','App\Http\Controllers\LatestNewsController@update')->name('updatelatestNews');
+});
+
 //posts
 Route::middleware('auth')->group(function() {//check if user is logged in
     //views
@@ -45,16 +55,6 @@ Route::middleware('auth')->group(function() {//check if user is logged in
     Route::post('contact/storeReply', 'App\Http\Controllers\ContactReplyController@store')->name('storeReply');
 });
 
-//latest news
-Route::middleware('auth')->group(function() {//check if user is logged in
-    Route::get('/', 'App\Http\Controllers\LatestNewsController@latestNewsView')->name('home'); // = HOME
-    Route::get('latestNewsCreateView', 'App\Http\Controllers\LatestNewsController@latestNewsCreate')->name('latestNewsCreateView');
-    Route::post('latestNewsCreate', 'App\Http\Controllers\LatestNewsController@create')->name('latestNewsCreate');
-    Route::get('latestNews/{id}/edit', 'App\Http\Controllers\LatestNewsController@editSingle')->name('latestNewsEdit');
-    Route::get('latestNews/{id}/delete', 'App\Http\Controllers\LatestNewsController@delete')->name('deletelatestNewsId');
-    Route::post('latestNews/update','App\Http\Controllers\LatestNewsController@update')->name('updatelatestNews');
-});
-
 //edit profile
 Route::middleware('auth')->group(function() {//check if user is logged in
     Route::get('editProfile', 'App\Http\Controllers\UserProfileController@getView')->name('editProfile');
@@ -66,6 +66,13 @@ Route::middleware('auth')->group(function() {//check if user is logged in
     Route::get('viewAllUsers', 'App\Http\Controllers\ViewAllUsers@getAll')->name('viewAllUsers');
     Route::get('viewSingleUser/{id}', 'App\Http\Controllers\ViewAllUsers@getSingle')->name('viewSingleUser');
     Route::get('viewSingleUserHistory/{id}', 'App\Http\Controllers\ViewAllUsers@getHistory')->name('viewSingleUserHistory');
+});
+
+//FAQ
+Route::middleware('auth')->group(function() {//check if user is logged in
+    Route::get('viewFAQ', 'App\Http\Controllers\FAQController@view')->name('viewFAQ');
+    Route::get('createViewFAQ', 'App\Http\Controllers\FAQController@createView')->name('createViewFAQ');
+    Route::post('createFAQ', 'App\Http\Controllers\FAQController@create')->name('createFAQ');
 });
 
 //About=sources

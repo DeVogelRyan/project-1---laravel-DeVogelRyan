@@ -94,6 +94,18 @@
                         target="_blank" href="https://codepen.io/">Open link</a>
                 </div>
             </li>
+            <li class="mt-2 flex flex-row">
+                <div class="flex flex-1 items-center p-4">
+                    <div class="flex-1 pl-1">
+                        <div class="text-gray-600 dark:text-gray-200 text-xs sm:text-sm break-words">Name: Appdividend
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-4 items-center p-4">
+                    <a class="bg-blue-500 hover:bg-blue-700 text-white text-sm fontfont-bold py-2 px-2 rounded"
+                        target="_blank" href="https://appdividend.com/2018/05/17/laravel-many-to-many-relationship-example/">Open link</a>
+                </div>
+            </li>
         </ul>
     </div>
 

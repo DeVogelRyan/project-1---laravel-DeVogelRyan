@@ -21,6 +21,9 @@
           <li class="mb-2">
             <a href="{{route('contact')}}" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Contact Us</a>
           </li>
+          <li class="mb-2">
+            <a href="{{route('viewFAQ')}}" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">FAQ</a>
+          </li>
         </ul>
       </div>
 

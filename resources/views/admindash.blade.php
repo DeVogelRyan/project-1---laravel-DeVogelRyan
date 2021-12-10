@@ -38,7 +38,11 @@ You are logged in as a Admin ge hebt rechten
         View contact forms
     </a>
     <a href="{{ route('latestNewsCreateView') }}"
-    class="{{ Route::is('create Latest news') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 rounded-md text-sm font-medium">Create Latest News</a>
+    class="rounded-r-md border border-gray-200 bg-white text-sm font-medium px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 inline-flex items-center">Create Latest News</a>
+
+    <a href="{{ route('createViewFAQ') }}"
+    class="rounded-r-md border border-gray-200 bg-white text-sm font-medium px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 inline-flex items-center">Create FAQ Item</a>
+
 </div>
 
 

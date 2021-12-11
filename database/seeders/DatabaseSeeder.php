@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call(addPost::class);
         $this->call(addLatestNews::class);
         $this->call(addCategories::class);
+        $this->call(addFAQ::class);
     }
 }

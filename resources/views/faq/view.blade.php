@@ -17,7 +17,6 @@
                                 <p
                                     class="text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-blue-200 text-blue-700 rounded-full">
                                     {{$categorie->title}}
-                                    {{$categorie->id}}
                                 </p>
                                 @endforeach
                             </div>

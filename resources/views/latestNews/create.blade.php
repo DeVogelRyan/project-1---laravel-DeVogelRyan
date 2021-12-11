@@ -4,6 +4,7 @@
 <body>
     @include('layouts.nav')
 
+    <h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500">Create Latest News</h1>
     <form action="{{ url('latestNewsCreate') }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="mt-2 shadow sm:rounded-md sm:overflow-hidden">

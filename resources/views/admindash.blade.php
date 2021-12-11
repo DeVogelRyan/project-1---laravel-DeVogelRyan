@@ -1,46 +1,113 @@
 @include('layouts.head')
 
 @include('layouts.nav')
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 
-<h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500">Dashboard</h1>
-<div class="m-5 mt-8 flex shadow-sm rounded-md" role="group">
-    <a href='{{route('viewUsersAdmin')}}' type="button"
-        class="rounded-l-lg border border-gray-200 bg-white text-sm font-medium px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 inline-flex items-center ">
-        <svg class="w-4 h-4 mr-2 fill-current" fill="currentColor" viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
-                clip-rule="evenodd"></path>
-        </svg>
-        {{$usercount}} Users
-    </a>
-    <a href="{{route('editPosts')}}"
-        class="border-t border-b border-gray-200 bg-white text-sm font-medium px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 inline-flex items-center">
-        <svg class="w-4 h-4 mr-2 fill-current" fill="currentColor" viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z">
-            </path>
-        </svg>
-        Edit posts
-    </a>
-    <a href="{{route('viewContact')}}"
-        class="rounded-r-md border border-gray-200 bg-white text-sm font-medium px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 inline-flex items-center">
-        <svg class="w-4 h-4 mr-2 fill-current" fill="currentColor" viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-                d="M2 9.5A3.5 3.5 0 005.5 13H9v2.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 15.586V13h2.5a4.5 4.5 0 10-.616-8.958 4.002 4.002 0 10-7.753 1.977A3.5 3.5 0 002 9.5zm9 3.5H9V8a1 1 0 012 0v5z"
-                clip-rule="evenodd"></path>
-        </svg>
-        View contact forms
-    </a>
-    <a href="{{ route('latestNewsCreateView') }}"
-    class="rounded-r-md border border-gray-200 bg-white text-sm font-medium px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 inline-flex items-center">Create Latest News</a>
+<h1 class="italic font-bold ml-4 text-2xl sm:text-xl sm:text-2xl mb-5 mt-4 sm:mt-5 text-indigo-500">Dashboard</h1>
 
-    <a href="{{ route('createViewFAQ') }}"
-    class="rounded-r-md border border-gray-200 bg-white text-sm font-medium px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 inline-flex items-center">Create FAQ Item</a>
-
+<div class="flex flex-wrap">
+    <div class="w-full md:w-1/2 xl:w-1/3 p-3">
+        <a href="{{route('editPosts')}}">
+        <!--Metric Card-->
+            <div class="bg-white border rounded shadow p-2">
+                <div class="flex flex-row items-center">
+                    <div class="flex-shrink pr-4">
+                        <div class="rounded p-3 bg-green-600"><i class="fa fa-pencil-alt fa-2x fa-fw fa-inverse"></i></div>
+                    </div>
+                    <div class="flex-1 text-right md:text-center">
+                        <h5 class="font-bold uppercase text-gray-500">Edit Post</h5>
+                        @if ($postcount > 1)
+                        <h3 class="font-bold text-xl sm:text-2xl">{{$postcount}} Posts </h3>
+                        @else
+                        <h3 class="font-bold text-xl sm:text-2xl">{{$postcount}} Post </h3>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </a>
+        <!--/Metric Card-->
+    </div>
+    <div class="w-full md:w-1/2 xl:w-1/3 p-3">
+        <!--Metric Card-->
+        <a href='{{route('viewUsersAdmin')}}'>
+            <div class="bg-white border rounded shadow p-2">
+                <div class="flex flex-row items-center">
+                    <div class="flex-shrink pr-4">
+                        <div class="rounded p-3 bg-pink-600"><i class="fas fa-users fa-2x fa-fw fa-inverse"></i></div>
+                    </div>
+                    <div class="flex-1 text-right md:text-center">
+                        <h5 class="font-bold uppercase text-gray-500">Total Users</h5>
+                        <h3 class="font-bold text-xl sm:text-2xl">{{$usercount}} <span class="text-green-500"><i class="fas fa-caret-up"></i></span></h3>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <!--/Metric Card-->
+    </div>
+    <div class="w-full md:w-1/2 xl:w-1/3 p-3">
+        <!--Metric Card-->
+        <a href="{{route('viewContact')}}">
+            <div class="bg-white border rounded shadow p-2">
+                <div class="flex flex-row items-center">
+                    <div class="flex-shrink pr-4">
+                        <div class="rounded p-3 bg-yellow-600"><i class="fas fa-ticket-alt fa-2x fa-fw fa-inverse"></i></div>
+                    </div>
+                    <div class="flex-1 text-right md:text-center">
+                        <h5 class="font-bold uppercase text-gray-500">View tickets</h5>
+                        @if ($ticketcount > 1)
+                        <h3 class="font-bold text-xl sm:text-2xl">{{$ticketcount}} Tickets </h3>
+                        @else
+                        <h3 class="font-bold text-xl sm:text-2xl">{{$ticketcount}} Ticket </h3>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </a>
+        <!--/Metric Card-->
+    </div>
+    <div class="w-full md:w-1/2 xl:w-1/3 p-3">
+        <!--Metric Card-->
+        <a href="{{ route('createViewFAQ') }}">
+            <div class="bg-white border rounded shadow p-2">
+                <div class="flex flex-row items-center">
+                    <div class="flex-shrink pr-4">
+                        <div class="rounded p-3 bg-blue-600"><i class="fas fa-question fa-2x fa-fw fa-inverse"></i></div>
+                    </div>
+                    <div class="flex-1 text-right md:text-center">
+                        <h5 class="font-bold uppercase text-gray-500">Create FAQ items</h5>
+                        @if ($faqcount > 1)
+                        <h3 class="font-bold text-xl sm:text-2xl">{{$faqcount}} Tickets </h3>
+                        @else
+                        <h3 class="font-bold text-xl sm:text-2xl">{{$faqcount}} Ticket </h3>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </a>
+        <!--/Metric Card-->
+    </div>
+    <div class="w-full md:w-1/2 xl:w-1/3 p-3">
+        <!--Metric Card-->
+        <a href="{{ route('latestNewsCreateView') }}">
+            <div class="bg-white border rounded shadow p-2">
+                <div class="flex flex-row items-center">
+                    <div class="flex-shrink pr-4">
+                        <div class="rounded p-3 bg-indigo-600"><i class="fas fa-newspaper fa-2x fa-fw fa-inverse"></i></div>
+                    </div>
+                    <div class="flex-1 text-right md:text-center">
+                        <h5 class="font-bold uppercase text-gray-500">Create Latest News</h5>
+                        @if ($latestcount > 1)
+                        <h3 class="font-bold text-xl sm:text-2xl">{{$latestcount}} Items </h3>
+                        @else
+                        <h3 class="font-bold text-xl sm:text-2xl">{{$latestcount}} Item </h3>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </a>
+        <!--/Metric Card-->
+    </div>
 </div>
 
 

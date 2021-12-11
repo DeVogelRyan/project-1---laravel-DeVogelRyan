@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
+use App\Models\Post;
 use App\Models\User;
+use App\Models\Contact;
+use App\Models\LatestNews;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,8 +17,13 @@ class DashboardController extends Controller
             return view('layouts.noPermission');
         }
         elseif (Auth::user()->hasRole('admin')){
-            $users = User::count();
-            return view('admindash', ['usercount' => $users]);
+            $usercount = User::count();
+            $postcount = Post::count();
+            $latestcount = LatestNews::count();
+            $ticketcount = Contact::count();
+            $faqcount = Faq::count();
+            return view('admindash', ['usercount' => $usercount, 'postcount' => $postcount,
+            'latestcount' => $latestcount, 'ticketcount' => $ticketcount, 'faqcount' => $faqcount]);
         }
     }
 

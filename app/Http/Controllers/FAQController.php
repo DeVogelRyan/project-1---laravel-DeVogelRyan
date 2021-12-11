@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FAQ;
+use App\Models\Faq;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -10,10 +10,7 @@ use Illuminate\Support\Facades\DB;
 class FAQController extends Controller
 {
     public function view(){
-        // $faqs = FAQ::with('categories')->get();
-        // $faqs = FAQ::with('categories')->where('id','=',2)->groupBy('categories.id')->get();
         $faqs = FAQ::with('categories')->get();
-        //dd($faqs);
         return view('faq.view', compact('faqs'));
     }
 
@@ -24,7 +21,7 @@ class FAQController extends Controller
     public function create(Request $request)
     {
 
-        $faq = new FAQ;
+        $faq = new Faq;
         if((strlen($request->question) || strlen($request->answer)) > 0 ){
             $faq->question = $request->question;
             $faq->answer =  $request->answer;

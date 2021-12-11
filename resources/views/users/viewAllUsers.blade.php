@@ -2,7 +2,7 @@
 
 <body>
     @include('layouts.nav')
-
+    <h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500">Users</h1>
     <div class="flex flex-col mt-5 w-full items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow p-2">
         <ul class="flex flex-col divide-y w-full">
             @foreach($users as $user)

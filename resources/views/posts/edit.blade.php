@@ -3,6 +3,8 @@
 
 <body>
     @include('layouts.nav')
+    <h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500">Edit Post</h1>
+
     <div class="flex-col md:flex-row justify-center items-center p-2 sm:p-10">
         @foreach($posts as $post)
         <div class="flex flex-col md:flex-row justify-center items-center w-full mb-5 ">

@@ -6,9 +6,9 @@
     <?php //Define global var for numbers
     global $i;
     $i=1; ?>
-
-    <div class="container mx-auto w-full h-full mt-5">
-        <img class="object-cover mx-auto object-center w-28 h-28 sm:w-24 sm:h-24 bg-white" src='{{$user->profile_img}}' alt='Profile'>
+    <h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500">{{$user->name}}'s History</h1>
+    <div class="container mx-auto w-full h-full mt-10 sm:mt-5">
+        <img class="object-cover mx-auto object-center w-20 h-20 sm:w-24 sm:h-24 bg-white" src='{{$user->profile_img}}' alt='Profile'>
         <div class="relative wrap overflow-hidden sm:px-10 h-full">
             <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
             <!-- right timeline -->

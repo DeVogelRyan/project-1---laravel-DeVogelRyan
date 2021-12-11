@@ -5,13 +5,7 @@
         <h5 class="text-xl font-bold mb-6">About</h5>
         <ul class="list-none footer-links">
           <li class="mb-2">
-            <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Team</a>
-          </li>
-          <li class="mb-2">
             <a href="{{ route('sources') }}" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Sources</a>
-          </li>
-          <li class="mb-2">
-            <a href="#" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Privacy</a>
           </li>
         </ul>
       </div>

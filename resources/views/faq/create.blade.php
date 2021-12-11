@@ -3,7 +3,7 @@
 
 <body>
     @include('layouts.nav')
-
+    <h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500"> Create FAQ</h1>
     <form action="{{ url('createFAQ') }}" method="POST">
         {{ csrf_field() }}
         <div class="mt-2 shadow sm:rounded-md sm:overflow-hidden">

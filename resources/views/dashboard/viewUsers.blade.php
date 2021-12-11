@@ -1,6 +1,7 @@
 @include('layouts.head')
 @include('layouts.nav')
 
+<h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500"> User Rights</h1>
 
 <div>
 @foreach ($users as $user)

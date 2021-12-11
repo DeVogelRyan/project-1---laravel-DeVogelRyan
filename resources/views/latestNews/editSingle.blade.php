@@ -30,10 +30,10 @@
                             placeholder="example content" required>{{$latestNews->content}}</textarea>
                     </div>
                 </div>
-        <div class="flex items-center">
-            <img class="max-w-md" src="{{ asset('storage/LatestImg/'.$latestNews->file) }}" alt="storyImg">
+        <div class="flex flex-col sm:flex-row sm:items-center">
+            <img class="w-full sm:max-w-md" src="{{ asset('storage/LatestImg/'.$latestNews->file) }}" alt="storyImg">
               <div class="flex justify-center text-sm text-gray-600">
-                <label for="file-upload" class="ml-10 relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                <label for="file-upload" class="mt-10 ml-10 relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                   <span>Change</span>
                   <input id="file-upload" name="file" type="file" class="sr-only form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" accept="image/*">
                 </label>

@@ -3,37 +3,49 @@
 
 <body>
     @include('layouts.nav')
-
-    <h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500">Create Ticket</h1>
-
-    <form action="{{ url('contact/create') }}" method="POST">
+    <h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500"> Edit FAQ</h1>
+    <form action="{{ url('createFAQ') }}" method="POST">
         {{ csrf_field() }}
         <div class="mt-2 shadow sm:rounded-md sm:overflow-hidden">
             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                 <div class="grid grid-cols-3 gap-6">
                     <div class="col-span-3 sm:col-span-2">
                         <label for="company-website" class="text-gray-500 font-bold block text-xl">
-                            Titel
+                            Question
                         </label>
                         <div class="mt-1 flex rounded-md shadow-sm">
-                            <input type="text" name="title" id="company-website"
+                            <input type="text" name="question" id="company-website"
                                 class="focus:ring-indigo-700 focus:border-indigo-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
-                                placeholder="example issue" required>
+                                placeholder="example question" required>
                         </div>
                     </div>
                 </div>
 
                 <div>
                     <label for="about" class="text-gray-500 font-bold block text-xl">
-                        Issue
+                        Answer
                     </label>
                     <div class="mt-1">
-                        <textarea id="about" name="content" rows="3"
+                        <textarea id="about" name="answer" rows="3"
                             class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-                            placeholder="example issue" required></textarea>
+                            placeholder="example answer" required></textarea>
                     </div>
                 </div>
-
+                <div>
+                    <label class="text-gray-500 font-bold block text-xl " for="category">Choose a category:</label>
+                    <select class="mt-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm border border-gray-300 rounded-md" name="category1" id="category">
+                        <option hidden disabled selected value> -- select an option -- </option>
+                        <option value="1">networking</option>
+                        <option value="2">cybersecurity</option>
+                        <option value="3">policies</option>
+                    </select>
+                    <select class="mt-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm border border-gray-300 rounded-md" name="category2" id="category">
+                        <option hidden disabled selected value> -- select an option -- </option>
+                        <option value="1">networking</option>
+                        <option value="2">cybersecurity</option>
+                        <option value="3">policies</option>
+                    </select>
+                </div>
             </div>
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                 <button type="submit"
@@ -41,14 +53,15 @@
                     Save
                 </button>
             </div>
+        </div>
     </form>
 
     @if(session('success'))
-        @include('modules.succesPopup')
+    @include('modules.succesPopup')
     @endif
 
     @error('error')
-        @include('modules.errorPopup')
+    @include('modules.errorPopup')
     @endif
 
     @include('layouts.footer')

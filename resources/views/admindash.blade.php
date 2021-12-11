@@ -2,11 +2,9 @@
 
 @include('layouts.nav')
 
-{{ Auth::user()->name }}
-You are logged in as a Admin ge hebt rechten
 
-
-<div class="m-5 flex shadow-sm rounded-md" role="group">
+<h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500">Dashboard</h1>
+<div class="m-5 mt-8 flex shadow-sm rounded-md" role="group">
     <a href='{{route('viewUsersAdmin')}}' type="button"
         class="rounded-l-lg border border-gray-200 bg-white text-sm font-medium px-4 py-2 text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 inline-flex items-center ">
         <svg class="w-4 h-4 mr-2 fill-current" fill="currentColor" viewBox="0 0 20 20"

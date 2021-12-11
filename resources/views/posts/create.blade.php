@@ -7,6 +7,7 @@
     <form action="{{ url('post/store') }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="mt-2 shadow sm:rounded-md sm:overflow-hidden">
+            <h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-2 text-indigo-500">Create Post</h1>
             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                 <div class="grid grid-cols-3 gap-6">
                     <div class="col-span-3 sm:col-span-2">

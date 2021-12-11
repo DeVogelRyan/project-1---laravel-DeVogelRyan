@@ -22,6 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(addUsers::class);
         $this->call(addPost::class);
         $this->call(addLatestNews::class);
-
+        $this->call(addCategories::class);
     }
 }

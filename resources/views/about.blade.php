@@ -2,9 +2,9 @@
 
 <body>
     @include('layouts.nav')
-    <h1 class="ml-6 mt-5 text-gray-800 font-semibold text-xl">Sources:</h1>
+    <h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500">Sources:</h1>
     <div
-        class="p-2 flex flex-col container w-4/5 mt-10 mx-auto w-full items-center justify-center bg-white dark:bg-gray-900 rounded-lg shadow">
+        class="p-2 flex flex-col container w-4/5 mt-5 mx-auto w-full items-center justify-center bg-white dark:bg-gray-900 rounded-lg shadow">
         <ul class="flex flex-col divide-y w-full">
             <li class="flex flex-row">
                 <div class="flex flex-1 items-center p-4">
@@ -104,6 +104,30 @@
                 <div class="flex flex-4 items-center p-4">
                     <a class="bg-blue-500 hover:bg-blue-700 text-white text-sm fontfont-bold py-2 px-2 rounded"
                         target="_blank" href="https://appdividend.com/2018/05/17/laravel-many-to-many-relationship-example/">Open link</a>
+                </div>
+            </li>
+            <li class="mt-2 flex flex-row">
+                <div class="flex flex-1 items-center p-4">
+                    <div class="flex-1 pl-1">
+                        <div class="text-gray-600 dark:text-gray-200 text-xs sm:text-sm break-words">Name: Stack overflow
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-4 items-center p-4">
+                    <a class="bg-blue-500 hover:bg-blue-700 text-white text-sm fontfont-bold py-2 px-2 rounded"
+                        target="_blank" href="https://stackoverflow.com/">Open link</a>
+                </div>
+            </li>
+            <li class="mt-2 flex flex-row">
+                <div class="flex flex-1 items-center p-4">
+                    <div class="flex-1 pl-1">
+                        <div class="text-gray-600 dark:text-gray-200 text-xs sm:text-sm break-words">Name: laracasts
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-4 items-center p-4">
+                    <a class="bg-blue-500 hover:bg-blue-700 text-white text-sm fontfont-bold py-2 px-2 rounded"
+                        target="_blank" href="https://laracasts.com">Open link</a>
                 </div>
             </li>
         </ul>

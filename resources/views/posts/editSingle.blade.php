@@ -2,7 +2,7 @@
 
 <body>
     @include('layouts.nav')
-
+    <h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500">Edit Single Post</h1>
     <form action="{{ url('post/update') }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="shadow sm:rounded-md sm:overflow-hidden">
@@ -30,24 +30,27 @@
                             placeholder="example content" required>{{$singlePost->content}}</textarea>
                     </div>
                 </div>
-        <div class="flex items-center">
-            <img class="max-w-md" src="{{ asset('storage/postsImg/'.$singlePost->file) }}" alt="storyImg">
-              <div class="flex justify-center text-sm text-gray-600">
-                <label for="file-upload" class="ml-10 relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                  <span>Change</span>
-                  <input id="file-upload" name="file" type="file" class="sr-only form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" accept="image/*">
-                </label>
-              </div>
+                <div class="flex flex-col sm:flex-row items-center">
+                    <img class="w-full sm:max-w-md" src="{{ asset('storage/postsImg/'.$singlePost->file) }}" alt="storyImg">
+                    <div class="flex justify-center text-sm text-gray-600">
+                        <label for="file-upload"
+                            class="ml-10 relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                            <span>Change</span>
+                            <input id="file-upload" name="file" type="file"
+                                class="sr-only form-control{{ $errors->has('file') ? ' is-invalid' : '' }}"
+                                accept="image/*">
+                        </label>
+                    </div>
 
-        </div>
-        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-            <button type="submit"
-                class="w-28 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Save
-            </button>
-        </div>
-        </div>
-        <input name="currentId" value="{{$singlePost->id}}" hidden>
+                </div>
+                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                    <button type="submit"
+                        class="w-28 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Save
+                    </button>
+                </div>
+            </div>
+            <input name="currentId" value="{{$singlePost->id}}" hidden>
     </form>
 
 

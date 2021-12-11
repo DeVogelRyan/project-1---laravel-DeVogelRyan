@@ -3,7 +3,7 @@
 
 <body>
     @include('layouts.nav')
-
+    <h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500">Reply to ticket</h1>
     <div class="flex-col md:flex-row justify-center items-center px-10 pt-10">
         <div class="flex flex-col md:flex-row justify-center items-center w-full mb-5 ">
             <div class="w-full bg-white rounded-xl p-5 shadow-2xl">

@@ -3,7 +3,7 @@
 <body>
     @include('layouts.nav')
 
-
+    <h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500">{{$user->name}}'s Profile</h1>
 
     <div
         class="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-16 bg-white shadow-xl rounded-lg text-gray-900">
@@ -32,10 +32,8 @@
             </li>
         </ul>
         <div class="flex p-4 border-t mx-8 mt-2">
-            <button
-                class="w-1/2 mr-2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">Chat</button>
             <a href="{{ route('viewSingleUserHistory', ["id" => $user->id] ) }}"
-                class="w-1/2 text-center block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">History</a>
+                class="w-full text-center block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">History</a>
         </div>
     </div>
 

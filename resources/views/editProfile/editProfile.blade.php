@@ -4,47 +4,48 @@
 <body>
     @include('layouts.nav')
 
+    <h1 class="italic font-bold ml-4 text-2xl sm:text-3xl mb-5 mt-4 sm:mt-5 text-indigo-500"> Edit Profile</h1>
     <form action="{{ url('updateProfile') }}" method="POST">
         {{ csrf_field() }}
         <div class="mt-2 shadow sm:rounded-md sm:overflow-hidden">
             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                 <div class="grid grid-cols-3 gap-6">
                     <div class="col-span-3 sm:col-span-2">
-                        <label class="text-gray-500 font-bold block text-xl">
+                        <label class="text-gray-500 font-bold block text-md sm:text-xl ">
                             Name
                         </label>
                         <div class="mt-1 flex rounded-md shadow-sm">
                             <input type="text" name="name" id="name"
-                                class="focus:ring-indigo-700 focus:border-indigo-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+                                class="focus:ring-indigo-700 focus:border-indigo-500 flex-1 block w-full rounded-md text-sm sm:text-md border-gray-300"
                                 value="{{$user->name}}" required>
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    <label class="text-gray-500 font-bold block text-xl">
+                    <label class="text-gray-500 font-bold block text-md sm:text-xl">
                         Email
                     </label>
                     <div class="mt-1 flex rounded-md shadow-sm">
                         <input type="text" name="email"
-                            class="focus:ring-indigo-700 focus:border-indigo-500 flex-1 block w-full rounded-md sm:text-sm border-gray-300"
+                            class="focus:ring-indigo-700 focus:border-indigo-500 flex-1 block w-full rounded-md text-sm sm:text-md border-gray-300"
                             value="{{$user->email}}" required>
                     </div>
                 </div>
 
                 <div>
-                    <label class="text-gray-500 font-bold block text-xl">
+                    <label class="text-gray-500 font-bold block text-md sm:text-xl">
                         About me
                     </label>
                     <div class="mt-1 flex rounded-md shadow-sm">
                         <textarea id="about" name="bio" rows="3"
-                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
+                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full text-sm sm:text-md border border-gray-300 rounded-md"
                             required>{{$user->bio}}</textarea>
                     </div>
                 </div>
 
                 <div>
-                    <label class="text-gray-500 font-bold block text-xl">
+                    <label class="text-gray-500 font-bold block text-md sm:text-xl">
                         Profile picture
                     </label>
                     <div class="flex flex-col md:flex-row justify-start items-center mt-10">

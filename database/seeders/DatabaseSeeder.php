@@ -2,11 +2,15 @@
 
 namespace Database\Seeders;
 
+use Database\Seeders\addFAQ;
 use Database\Seeders\addPost;
 use Database\Seeders\addAdmin;
 use Database\Seeders\addUsers;
+use Database\Seeders\addTicket;
 use Illuminate\Database\Seeder;
+use Database\Seeders\addCategories;
 use Database\Seeders\addLatestNews;
+use Database\Seeders\LaratrustSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,5 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call(addLatestNews::class);
         $this->call(addCategories::class);
         $this->call(addFAQ::class);
+        $this->call(addTicket::class);
     }
 }

@@ -80,6 +80,9 @@ Route::middleware('auth')->group(function() {//check if user is logged in
     Route::get('sources', function(){
         return view('about');
     })->name('sources');
+    Route::get('credits', function(){
+        return view('credits');
+    })->name('credits');
 });
 
 

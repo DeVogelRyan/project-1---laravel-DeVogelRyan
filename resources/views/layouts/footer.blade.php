@@ -7,6 +7,9 @@
           <li class="mb-2">
             <a href="{{ route('sources') }}" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Sources</a>
           </li>
+          <li class="mb-2">
+            <a href="{{ route('credits') }}" class="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800">Credits</a>
+          </li>
         </ul>
       </div>
       <div class="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 md:mt-0">

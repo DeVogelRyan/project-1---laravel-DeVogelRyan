@@ -6,24 +6,12 @@ use App\Models\Faq;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class FAQController extends Controller
 {
     public function view(){
         $faqs = FAQ::with('categories')->get();
-
-
-        // $faqs = FAQ::with(['categories'=>function($query){
-        //     // $query->select('categories.id');
-        //     // $query->groupBy('id');
-        // }])->get();
-
-        // $faqs = FAQ::with('categories')->get()->groupBy('categories.category_id');
-
-    //    $faqs = FAQ::with(['categories' => function($query){
-    //         $query->groupBy('id');
-    //     }])->get();
-
 
         return view('faq.view', compact('faqs'));
     }
@@ -35,11 +23,14 @@ class FAQController extends Controller
     public function create(Request $request)
     {
         $faq = new Faq;
-        if((strlen($request->question) || strlen($request->answer)) > 0 ){
+
+        $validation = Validator::make($request->all(),
+        array('question'=> 'required|string|min:3|max:25', 'answer'=>'required|string|min:3|max:25'));
+        if ($validation->passes()){
             $faq->question = $request->question;
             $faq->answer =  $request->answer;
         }else{
-            return redirect()->back()->withErrors(['error' => 'You have to fill something in!']);
+            return redirect()->back()->withErrors(['error' => 'Your answer/question needs to be atleast 3 charakters and it needs to be max 25 charakters!']);
         }
 
         $faq->save();
@@ -48,6 +39,7 @@ class FAQController extends Controller
                 $category = Category::find([$request->category1, $request->category2]);
             }
         }
+
         else if($request->has('category1')){
             $category = Category::find([$request->category1]);
         }

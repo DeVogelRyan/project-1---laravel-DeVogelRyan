@@ -20,10 +20,7 @@ class UserProfileController extends Controller
         ['email' => ['required',Rule::unique('users')->ignore(Auth::user()->id)]]);//check if email is unique
         if ($validation->passes()){
             $user = Auth::user();
-            $user->update(array('name' => $request->name));
-            $user->update(array('email' => $request->email));
-            $user->update(array('bio' => $request->bio));
-            $user->update(array('profile_img' => $request->profile_img));
+            $user->update(array('name' => $request->name, 'email' => $request->email, 'bio' => $request->bio, 'profile_img' => $request->profile_img));
             return redirect()->back()->withSuccess('Profile succesfully updated!');
         }
         else {

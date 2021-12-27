@@ -6,6 +6,7 @@ use App\Mail\SendEmail;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ContactCRUDController extends Controller
 {
@@ -14,8 +15,10 @@ class ContactCRUDController extends Controller
         //this gives us the currently logged in user
         $user = $request->user();
         $formdata = $request->all();
-        if(strlen($formdata['title']) > 20){
-            return redirect()->back()->withErrors(['error' => 'The titel can only be 20 charakters long']);
+        $validation = Validator::make($request->all(),
+        ['title' => 'required|string|min:3|max:25|nullable']);
+        if (!$validation->passes()){
+            return redirect()->back()->withErrors(['error' => 'The titel needs to be atleast 3 charakters an has a max of 25 charakters!']);
         }
         else {
             $user->contact()->create($formdata);

@@ -11,6 +11,20 @@ class FAQController extends Controller
 {
     public function view(){
         $faqs = FAQ::with('categories')->get();
+
+
+        // $faqs = FAQ::with(['categories'=>function($query){
+        //     // $query->select('categories.id');
+        //     // $query->groupBy('id');
+        // }])->get();
+
+        // $faqs = FAQ::with('categories')->get()->groupBy('categories.category_id');
+
+    //    $faqs = FAQ::with(['categories' => function($query){
+    //         $query->groupBy('id');
+    //     }])->get();
+
+
         return view('faq.view', compact('faqs'));
     }
 
@@ -20,7 +34,6 @@ class FAQController extends Controller
 
     public function create(Request $request)
     {
-
         $faq = new Faq;
         if((strlen($request->question) || strlen($request->answer)) > 0 ){
             $faq->question = $request->question;

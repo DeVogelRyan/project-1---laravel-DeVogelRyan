@@ -4,6 +4,27 @@ This is my web integration project.
 ## Target:
 My target of this project was to make a social network.
 
+## Features:
+* Authentication
+* Authorization
+* Post creation/deletion/editing
+* Latest News creation/deletion/editing(only by admin)
+* User Profile Page
+* FAQ Page
+* Contact page(sends email with mailtrap)
+* User's timeline
+* Admin Dashboard
+* Admin can promote/demote users
+* If a guest is viewing the webpage his/her view will be limited
+* There are a few users added with seeders as well as Post and latest news, tickets, FAQ items
+* This website is also optimised for mobile view
+* Nice styling with tailwindcss
+* Unit testing on github
+* All the sources are linked in the about page
+
+# Demo:
+This is a short demo
+(Does not include all features)
 
 
 
@@ -18,6 +39,7 @@ My target of this project was to make a social network.
 * https://appdividend.com/2018/05/17/laravel-many-to-many-relationship-example/
 * https://stackoverflow.com/
 * https://laracasts.com
+
 (These sources can also be found on the about page)
 
 

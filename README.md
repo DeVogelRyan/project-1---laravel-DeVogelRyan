@@ -2,7 +2,8 @@
 This is my web integration project.
 
 ## Target:
-My target of this project was to make a social network.
+My target of this project was to make a social network. 
+So people can share posts and view each others timeline...
 
 ## Features:
 * Authentication
@@ -21,11 +22,6 @@ My target of this project was to make a social network.
 * Nice styling with tailwindcss
 * Unit testing on github
 * All the sources are linked in the about page
-
-# Demo:
-This is a short demo
-(Does not include all features)
-
 
 
 ## Sources:

@@ -5,6 +5,11 @@ This is my web integration project.
 My target of this project was to make a social network. 
 So people can share posts and view each others timeline...
 
+## Demo:
+
+https://user-images.githubusercontent.com/80109984/229616486-7b50cdc1-8f82-498b-a249-087d6bb8bfae.mp4
+
+
 ## Features:
 * Authentication
 * Authorization

@@ -10,6 +10,16 @@ So people can share posts and view each others timeline...
 https://user-images.githubusercontent.com/80109984/229616486-7b50cdc1-8f82-498b-a249-087d6bb8bfae.mp4
 
 
+## Setup:
+```bash
+
+git clone https://github.com/DeVogelRyan/project-1---laravel-DeVogelRyan
+php artisan migrate:fresh --seed
+php artisan serve
+```
+(Note make sure that all the services from the .env file are available)
+
+
 ## Features:
 * Authentication
 * Authorization

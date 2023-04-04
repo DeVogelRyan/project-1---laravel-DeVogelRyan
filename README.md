@@ -12,7 +12,6 @@ https://user-images.githubusercontent.com/80109984/229616486-7b50cdc1-8f82-498b-
 
 ## Setup:
 ```bash
-
 git clone https://github.com/DeVogelRyan/project-1---laravel-DeVogelRyan
 php artisan migrate:fresh --seed
 php artisan serve
